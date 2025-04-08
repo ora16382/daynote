@@ -12,7 +12,12 @@
           "package_name": "jh.project.daynote"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "14792532959-1kkqib217i47a48uqr8oqilh6vmhuemi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCilxBhGakhmyYsj8-Ejaju0qTF0ifMys8"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14792532959-1kkqib217i47a48uqr8oqilh6vmhuemi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "14792532959-f9jj6qtmkhc22teoqr2j688bspbvu6tm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jh.project.daynote"
+              }
+            }
+          ]
         }
       }
     }
