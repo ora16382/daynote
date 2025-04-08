@@ -63,6 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '14792532959',
     projectId: 'daynote-2e7ae',
     storageBucket: 'daynote-2e7ae.firebasestorage.app',
+    iosClientId: '14792532959-f9jj6qtmkhc22teoqr2j688bspbvu6tm.apps.googleusercontent.com',
     iosBundleId: 'jh.project.daynote',
   );
+
 }
