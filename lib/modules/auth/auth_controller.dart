@@ -1,23 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:daynote/modules/user/user_controller.dart';
-import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 import '../../routes/app_pages.dart';
 
 class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  Rxn<User> firebaseUser = Rxn<User>();
+  // Rxn<User> firebaseUser = Rxn<User>();
 
   bool isLoginProgress = false;
 
   @override
   void onInit() {
     super.onInit();
-    firebaseUser.bindStream(_auth.authStateChanges());
-    ever(firebaseUser, _handleAuthChanged);
+    /// Splash 와 동작이 겹치는 문제로 인하여 주석 처리
+    // firebaseUser.bindStream(_auth.authStateChanges());
+    // ever(firebaseUser, _handleAuthChanged);
   }
 
   /// 로그인 완료 콜백
@@ -53,6 +55,8 @@ class AuthController extends GetxController {
       );
 
       await _auth.signInWithCredential(credential);
+
+      _handleAuthChanged(_auth.currentUser);
     } catch (e) {
       Get.snackbar('로그인 실패', e.toString());
     }
@@ -75,5 +79,6 @@ class AuthController extends GetxController {
   Future<void> signOut() async {
     await _auth.signOut();
     await _googleSignIn.signOut();
+    _handleAuthChanged(null);
   }
 }

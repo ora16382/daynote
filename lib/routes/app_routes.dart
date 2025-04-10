@@ -6,7 +6,9 @@ abstract class Routes {
   static const splash = '/splash';
   static const auth = '/auth';
   static const name = '/name';
-  static const mood = '/mood';
+  static const profile = '/profile';
+  static const home = '/home';
   static const feedWrite = '/feed_write';
-  static const feedList = '/feed_list';
+  static const feedDetail = '/feed_detail';
+  static const youtubePlayer = '/youtube_player';
 }
