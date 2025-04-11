@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+
 import '../../util/app_color.dart' show AppColors;
 import 'auth_controller.dart';
 

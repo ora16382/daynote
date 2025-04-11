@@ -11,7 +11,8 @@ _UserModel _$UserModelFromJson(Map<String, dynamic> json) => _UserModel(
   name: json['name'] as String?,
   email: json['email'] as String?,
   displayName: json['displayName'] as String?,
-  selectedMood: json['selectedMood'] as String?,
+  ageGroup: ageGroupFromJson(json['ageGroup'] as String?),
+  musicGenres: musicGenresFromJson(json['musicGenres'] as List?),
   createdAt: const TimestampConverter().fromJson(json['createdAt']),
 );
 
@@ -21,6 +22,7 @@ Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
       'name': instance.name,
       'email': instance.email,
       'displayName': instance.displayName,
-      'selectedMood': instance.selectedMood,
+      'ageGroup': ageGroupToJson(instance.ageGroup),
+      'musicGenres': musicGenresToJson(instance.musicGenres),
       'createdAt': const TimestampConverter().toJson(instance.createdAt),
     };

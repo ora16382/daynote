@@ -1,7 +1,10 @@
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
 import '../user/user_controller.dart';
 
 class NameSettingController extends GetxController {
@@ -12,6 +15,8 @@ class NameSettingController extends GetxController {
 
   /// 이름을 추가하여 최종적으로 저장
   Future<void> registerUser() async {
+    FocusManager.instance.primaryFocus?.unfocus();
+
     isLoginProgress = true;
     update([':loading']);
 
@@ -28,9 +33,10 @@ class NameSettingController extends GetxController {
       'uid': user.uid,
       'displayName': name.value.trim(),
       'email': user.email,
-      'selectedMood': null,
       'createdAt': FieldValue.serverTimestamp(),
     });
+
+    GetStorage().write('isSignupFinished', true);
 
     /// 유저 상태 초기화
     await Get.find<UserController>().loadUser();

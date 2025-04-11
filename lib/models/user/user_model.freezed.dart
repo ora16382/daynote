@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserModel {
 
- String get uid; String? get name; String? get email; String? get displayName; String? get selectedMood;@TimestampConverter() DateTime? get createdAt;
+ String get uid; String? get name; String? get email; String? get displayName;@JsonKey(fromJson: ageGroupFromJson, toJson: ageGroupToJson) AgeGroup? get ageGroup;@JsonKey(fromJson: musicGenresFromJson, toJson: musicGenresToJson) List<MusicGenre>? get musicGenres;@TimestampConverter() DateTime? get createdAt;
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $UserModelCopyWith<UserModel> get copyWith => _$UserModelCopyWithImpl<UserModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.selectedMood, selectedMood) || other.selectedMood == selectedMood)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.ageGroup, ageGroup) || other.ageGroup == ageGroup)&&const DeepCollectionEquality().equals(other.musicGenres, musicGenres)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,name,email,displayName,selectedMood,createdAt);
+int get hashCode => Object.hash(runtimeType,uid,name,email,displayName,ageGroup,const DeepCollectionEquality().hash(musicGenres),createdAt);
 
 @override
 String toString() {
-  return 'UserModel(uid: $uid, name: $name, email: $email, displayName: $displayName, selectedMood: $selectedMood, createdAt: $createdAt)';
+  return 'UserModel(uid: $uid, name: $name, email: $email, displayName: $displayName, ageGroup: $ageGroup, musicGenres: $musicGenres, createdAt: $createdAt)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $UserModelCopyWith<$Res>  {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) _then) = _$UserModelCopyWithImpl;
 @useResult
 $Res call({
- String uid, String? name, String? email, String? displayName, String? selectedMood,@TimestampConverter() DateTime? createdAt
+ String uid, String? name, String? email, String? displayName,@JsonKey(fromJson: ageGroupFromJson, toJson: ageGroupToJson) AgeGroup? ageGroup,@JsonKey(fromJson: musicGenresFromJson, toJson: musicGenresToJson) List<MusicGenre>? musicGenres,@TimestampConverter() DateTime? createdAt
 });
 
 
@@ -66,14 +66,15 @@ class _$UserModelCopyWithImpl<$Res>
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? name = freezed,Object? email = freezed,Object? displayName = freezed,Object? selectedMood = freezed,Object? createdAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? uid = null,Object? name = freezed,Object? email = freezed,Object? displayName = freezed,Object? ageGroup = freezed,Object? musicGenres = freezed,Object? createdAt = freezed,}) {
   return _then(_self.copyWith(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String?,selectedMood: freezed == selectedMood ? _self.selectedMood : selectedMood // ignore: cast_nullable_to_non_nullable
-as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as String?,ageGroup: freezed == ageGroup ? _self.ageGroup : ageGroup // ignore: cast_nullable_to_non_nullable
+as AgeGroup?,musicGenres: freezed == musicGenres ? _self.musicGenres : musicGenres // ignore: cast_nullable_to_non_nullable
+as List<MusicGenre>?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
 }
@@ -85,14 +86,23 @@ as DateTime?,
 @JsonSerializable()
 
 class _UserModel implements UserModel {
-  const _UserModel({required this.uid, this.name, this.email, this.displayName, this.selectedMood, @TimestampConverter() this.createdAt});
+  const _UserModel({required this.uid, this.name, this.email, this.displayName, @JsonKey(fromJson: ageGroupFromJson, toJson: ageGroupToJson) this.ageGroup, @JsonKey(fromJson: musicGenresFromJson, toJson: musicGenresToJson) final  List<MusicGenre>? musicGenres, @TimestampConverter() this.createdAt}): _musicGenres = musicGenres;
   factory _UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
 
 @override final  String uid;
 @override final  String? name;
 @override final  String? email;
 @override final  String? displayName;
-@override final  String? selectedMood;
+@override@JsonKey(fromJson: ageGroupFromJson, toJson: ageGroupToJson) final  AgeGroup? ageGroup;
+ final  List<MusicGenre>? _musicGenres;
+@override@JsonKey(fromJson: musicGenresFromJson, toJson: musicGenresToJson) List<MusicGenre>? get musicGenres {
+  final value = _musicGenres;
+  if (value == null) return null;
+  if (_musicGenres is EqualUnmodifiableListView) return _musicGenres;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
 @override@TimestampConverter() final  DateTime? createdAt;
 
 /// Create a copy of UserModel
@@ -108,16 +118,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.selectedMood, selectedMood) || other.selectedMood == selectedMood)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.uid, uid) || other.uid == uid)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.displayName, displayName) || other.displayName == displayName)&&(identical(other.ageGroup, ageGroup) || other.ageGroup == ageGroup)&&const DeepCollectionEquality().equals(other._musicGenres, _musicGenres)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,uid,name,email,displayName,selectedMood,createdAt);
+int get hashCode => Object.hash(runtimeType,uid,name,email,displayName,ageGroup,const DeepCollectionEquality().hash(_musicGenres),createdAt);
 
 @override
 String toString() {
-  return 'UserModel(uid: $uid, name: $name, email: $email, displayName: $displayName, selectedMood: $selectedMood, createdAt: $createdAt)';
+  return 'UserModel(uid: $uid, name: $name, email: $email, displayName: $displayName, ageGroup: $ageGroup, musicGenres: $musicGenres, createdAt: $createdAt)';
 }
 
 
@@ -128,7 +138,7 @@ abstract mixin class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Re
   factory _$UserModelCopyWith(_UserModel value, $Res Function(_UserModel) _then) = __$UserModelCopyWithImpl;
 @override @useResult
 $Res call({
- String uid, String? name, String? email, String? displayName, String? selectedMood,@TimestampConverter() DateTime? createdAt
+ String uid, String? name, String? email, String? displayName,@JsonKey(fromJson: ageGroupFromJson, toJson: ageGroupToJson) AgeGroup? ageGroup,@JsonKey(fromJson: musicGenresFromJson, toJson: musicGenresToJson) List<MusicGenre>? musicGenres,@TimestampConverter() DateTime? createdAt
 });
 
 
@@ -145,14 +155,15 @@ class __$UserModelCopyWithImpl<$Res>
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? name = freezed,Object? email = freezed,Object? displayName = freezed,Object? selectedMood = freezed,Object? createdAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? uid = null,Object? name = freezed,Object? email = freezed,Object? displayName = freezed,Object? ageGroup = freezed,Object? musicGenres = freezed,Object? createdAt = freezed,}) {
   return _then(_UserModel(
 uid: null == uid ? _self.uid : uid // ignore: cast_nullable_to_non_nullable
 as String,name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,email: freezed == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String?,displayName: freezed == displayName ? _self.displayName : displayName // ignore: cast_nullable_to_non_nullable
-as String?,selectedMood: freezed == selectedMood ? _self.selectedMood : selectedMood // ignore: cast_nullable_to_non_nullable
-as String?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
+as String?,ageGroup: freezed == ageGroup ? _self.ageGroup : ageGroup // ignore: cast_nullable_to_non_nullable
+as AgeGroup?,musicGenres: freezed == musicGenres ? _self._musicGenres : musicGenres // ignore: cast_nullable_to_non_nullable
+as List<MusicGenre>?,createdAt: freezed == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
 as DateTime?,
   ));
 }
