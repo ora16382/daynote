@@ -37,7 +37,7 @@ dependencies:
 
 
   # GetX: 상태관리, 라우팅, HTTP 요청
-  get: ^4.6.6
+  get: ^4.7.2
 
   # Firebase
   firebase_core: ^3.13.0
