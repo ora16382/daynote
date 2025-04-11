@@ -1,0 +1,1 @@
+enum HomeType { feed, myInfo }

@@ -34,7 +34,67 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+
+
+  # GetX: 상태관리, 라우팅, HTTP 요청
+  get: ^4.7.2
+
+  # Firebase
   firebase_core: ^3.13.0
+  firebase_auth: ^5.5.2
+  cloud_firestore: ^5.6.6
+  firebase_storage: ^12.4.5
+
+  # Google 로그인
+  google_sign_in: ^6.3.0
+
+  # 유튜브 영상 재생
+  youtube_player_flutter: ^9.1.1
+  #youtube_player_iframe: ^5.2.1 // iOS 용
+
+  # URL 열기 (링크로 연결할 경우 사용)
+  url_launcher: ^6.2.5
+
+  # 시간 포맷팅
+  jiffy: ^6.4.3
+
+  # 로딩 인디케이터 (선택)
+  flutter_spinkit: ^5.2.1
+
+  # 로깅
+  logger: ^2.5.0
+
+  # 토스트 메시지
+  fluttertoast: ^8.2.12
+
+  # 로컬 저장소
+  get_storage: ^2.1.1
+
+  # Flutter 모델 자동 생성기
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # 페이지네이션
+  infinite_scroll_pagination: ^5.0.0
+
+  # 고유 ID
+  uuid: ^4.5.1
+
+  # 환경설정 값 관리
+  flutter_dotenv: ^5.2.1
+
+  # 이미지 표시
+  shimmer: ^3.0.0
+  fancy_shimmer_image: ^2.0.3
+
+  # bottom navi bar
+  convex_bottom_bar: ^3.2.0
+
+  # native splash
+  flutter_native_splash: ^2.4.6
+
+  # 패키지 정보
+  package_info_plus: ^8.3.0
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +107,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
 
+  build_runner: ^2.4.15
+  freezed: ^3.0.6
+  json_serializable: ^6.9.4
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -59,9 +122,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -88,3 +151,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+flutter_native_splash:
+  color: "#3886c9"
+  image: assets/images/splash_image.png
+  fullscreen: true
+
+  android_12:
+    color: "#3886c9"
+
+  color_ios: "#3886c9"
+  color_dark_ios : "#3886c9"
+#  image_ios: assets/images/splash_image_new.png
