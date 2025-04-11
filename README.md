@@ -66,42 +66,42 @@ YOUTUBE_API_KEY=your_youtube_key
 ```
 
 ---
-
 ## 📸 주요 화면
 
 ### 🔐 로그인 화면  
 구글 로그인으로 간편하게 시작할 수 있어요.  
-![로그인 화면](images/login_screen.jpg)
+<img src="images/login_screen.jpg" alt="로그인 화면" width="320"/>
 
 ---
 
 ### 🧑 프로필 설정 화면  
 닉네임, 연령대, 선호 음악 장르를 선택해요.  
-![프로필 설정 화면](images/profile_setup_screen.jpg)
+<img src="images/profile_setup_screen.jpg" alt="프로필 설정 화면" width="320"/>
 
 ---
 
 ### 📝 피드 작성 화면  
 일기와 기분을 입력하면 AI가 음악과 명언을 추천해줘요.  
-![피드 작성 화면](images/feed_write_screen.jpg)
+<img src="images/feed_write_screen.jpg" alt="피드 작성 화면" width="320"/>
 
 ---
 
 ### 📄 피드 목록 화면  
 내가 쓴 일기를 무한 스크롤로 확인할 수 있어요.  
-![피드 목록 화면](images/feed_list_screen.jpg)
+<img src="images/feed_list_screen.jpg" alt="피드 목록 화면" width="320"/>
 
 ---
 
 ### 📌 피드 상세 화면  
 추천된 명언과 음악, 유튜브 썸네일까지 확인할 수 있어요.  
-![피드 상세 화면](images/feed_detail_screen.jpg)
+<img src="images/feed_detail_screen.jpg" alt="피드 상세 화면" width="320"/>
 
 ---
 
 ### ⚙️ 내 정보 화면  
 이름, 선호 장르, 연령대, 앱 버전 및 로그아웃까지 확인할 수 있어요.  
-![내 정보 화면](images/profile_view_screen.jpg)
+<img src="images/profile_view_screen.jpg" alt="내 정보 화면" width="320"/>
+
 
 ---
 
